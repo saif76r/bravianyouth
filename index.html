@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGI Community - Empowering Youth</title>
+    <!-- Tailwind CSS v4 Browser runtime -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+        --font-display: "Outfit", sans-serif;
+        --color-brand-blue: #2563EB;
+        --color-brand-orange: #FB923C;
+        --color-brand-green: #34D399;
+      }
+      .glass {
+        @apply bg-white/80 backdrop-blur-xl border-b border-white/20;
+      }
+      .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+      }
+      * { -webkit-tap-highlight-color: transparent; }
+      .tap-bounce { @apply transition-transform duration-100 active:scale-95; }
+      .card-hover { @apply transition-all duration-300 hover:shadow-xl active:scale-[0.98] cursor-pointer; }
+      
+      .fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .custom-scrollbar::-webkit-scrollbar { height: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased text-slate-900 bg-white">
+    <div id="app">
+        <!-- Navbar -->
+        <nav class="fixed top-0 left-0 right-0 z-50 glass">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <a href="#/" class="flex items-center space-x-3 transition-transform hover:scale-105">
+                        <img src="logo.png" alt="BGI Logo" class="w-10 h-10 rounded-xl shadow-sm border border-slate-100 object-cover" referrerPolicy="no-referrer">
+                        <span class="font-display text-xl font-extrabold tracking-tight">
+                            BGI <span class="text-brand-blue">COMMUNITY</span>
+                        </span>
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#/" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Home</a>
+                        <a href="#/events" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Events</a>
+                        <a href="#/blog" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Blog</a>
+                        <a href="#/resources" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors">Resources</a>
+                        <button class="bg-brand-blue text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">Join Us</button>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-slate-600 focus:outline-none"><i data-lucide="menu"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-xl">
+                <a href="#/" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Home</a>
+                <a href="#/events" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Events</a>
+                <a href="#/blog" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Blog</a>
+                <a href="#/resources" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Resources</a>
+            </div>
+        </nav>
+
+        <main id="content" class="min-h-screen pt-16">
+            <!-- Content Injected -->
+        </main>
+
+        <footer class="bg-slate-900 text-slate-400 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                    <div class="col-span-1 md:col-span-2">
+                        <h3 class="text-white font-display text-2xl font-bold mb-6">BGI Community</h3>
+                        <p class="max-w-md text-slate-400 leading-relaxed text-lg italic">
+                            Empowering the next generation to lead, succeed, and create positive change in their communities. 
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Connect</h4>
+                        <ul class="space-y-4 text-sm">
+                            <li class="hover:text-brand-blue cursor-pointer transition-colors">Instagram</li>
+                            <li class="hover:text-brand-blue cursor-pointer transition-colors">LinkedIn</li>
+                            <li class="hover:text-brand-blue cursor-pointer transition-colors">Twitter</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Support</h4>
+                        <ul class="space-y-4 text-sm">
+                            <li class="hover:text-brand-blue cursor-pointer transition-colors">Help Center</li>
+                            <li class="hover:text-brand-blue cursor-pointer transition-colors">Contact Us</li>
+                            <li class="hover:text-brand-blue cursor-pointer transition-colors">Privacy Policy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-slate-800 pt-8 text-xs tracking-wider flex justify-between">
+                    <p>&copy; 2026 BGI Community Organization. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Data Definitions
+        const blogPosts = [
+            { id: '1', title: 'Transforming My Community: A Story of Local Change', excerpt: 'How one youth leader turned an abandoned lot into a thriving community hub.', date: 'March 28, 2026', author: 'Marcus Chen', category: 'Success Story', imageUrl: 'https://picsum.photos/seed/blog1/800/600' },
+            { id: '2', title: '10 Skills Every Youth Leader Needs in 2026', excerpt: 'Essential skills for the modern advocate, from digital empathy to networking.', date: 'April 05, 2026', author: 'Elena Rodriguez', category: 'Leadership', imageUrl: 'https://picsum.photos/seed/blog2/800/600' },
+            { id: '3', title: 'Navigating Higher Education with Confidence', excerpt: 'Expert advice on applying for scholarships and finding mentorship.', date: 'April 12, 2026', author: 'Dr. Sarah Smith', category: 'Education', imageUrl: 'https://picsum.photos/seed/blog3/800/600' }
+        ];
+
+        const events = [
+            { id: '1', title: 'Youth Leadership Summit 2026', description: 'A two-day intensive summit focusing on community organizing and ethical leadership.', date: 'May 12-13, 2026', location: 'Community Arts Center & Hybrid', type: 'workshop', imageUrl: 'https://picsum.photos/seed/summit/800/400' },
+            { id: '2', title: 'Digital Literacy for All', description: 'Learn essential digital skills needed for the modern workplace in this evening series.', date: 'Starting April 22, 2026', location: 'Online via Zoom', type: 'webinar', imageUrl: 'https://picsum.photos/seed/digital/800/400' }
+        ];
+
+        const resourcesList = [
+            { id: '1', title: 'Resume Writing Guide', description: 'Step-by-step guide to professional resume writing.', category: 'employment', type: 'pdf' },
+            { id: '2', title: 'Interview Masterclass', description: 'Video series on how to ace your first job interview.', category: 'employment', type: 'video' },
+            { id: '3', title: 'Mental Health Toolkit', description: 'Resources to help manage stress and anxiety.', category: 'mental-health', type: 'pdf' },
+            { id: '4', title: 'College Scholarship Database', description: 'Curated list of scholarships for marginalized youth.', category: 'education', type: 'link' },
+        ];
+
+        let currentSearch = '';
+        let currentCategory = 'all';
+
+        function renderHome() {
+            return `
+                <div class="fade-in">
+                    <section class="relative overflow-hidden pt-20 pb-24 lg:pt-32 lg:pb-40">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="text-center max-w-3xl mx-auto">
+                                <div class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-wide text-brand-blue bg-blue-50 rounded-full uppercase">The Future is in Your Hands</div>
+                                <h1 class="text-5xl md:text-7xl font-display font-extrabold tracking-tight mb-8">Empowering Youth to <span class="gradient-text">Lead & Succeed</span></h1>
+                                <p class="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">Everything you need to turn your potential into action. Join the community today.</p>
+                                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                                    <a href="#/resources" class="w-full sm:w-auto px-8 py-4 bg-brand-blue text-white rounded-2xl font-bold shadow-xl tap-bounce">Explore Resources</a>
+                                    <a href="#/events" class="w-full sm:w-auto px-8 py-4 bg-white border-2 border-slate-100 text-slate-700 rounded-2xl font-bold flex items-center justify-center tap-bounce">Upcoming Events <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i></a>
+                                </div>
+                                <div class="mt-16 relative group">
+                                    <div class="absolute inset-0 bg-brand-blue/10 rounded-[40px] blur-3xl -z-10 transition-colors"></div>
+                                    <img src="o.jpg" alt="BGI" class="w-full h-auto aspect-video md:aspect-2/1 object-cover rounded-[40px] shadow-2xl border border-slate-100 group-hover:scale-[1.01] transition-transform duration-700">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="py-20 bg-slate-50/50 border-y border-slate-100">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div class="p-8 bg-white rounded-3xl shadow-xs flex flex-col items-center text-center"><div class="bg-blue-50 text-blue-600 p-4 rounded-2xl mb-4"><i data-lucide="users"></i></div><div class="text-3xl font-display font-extrabold mb-1">15k+</div><div class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Youth</div></div>
+                                <div class="p-8 bg-white rounded-3xl shadow-xs flex flex-col items-center text-center"><div class="bg-orange-50 text-orange-600 p-4 rounded-2xl mb-4"><i data-lucide="book-open"></i></div><div class="text-3xl font-display font-extrabold mb-1">500+</div><div class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Tools</div></div>
+                                <div class="p-8 bg-white rounded-3xl shadow-xs flex flex-col items-center text-center"><div class="bg-emerald-50 text-emerald-600 p-4 rounded-2xl mb-4"><i data-lucide="trophy"></i></div><div class="text-3xl font-display font-extrabold mb-1">1.2k+</div><div class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Leaders</div></div>
+                                <div class="p-8 bg-white rounded-3xl shadow-xs flex flex-col items-center text-center"><div class="bg-purple-50 text-purple-600 p-4 rounded-2xl mb-4"><i data-lucide="lightbulb"></i></div><div class="text-3xl font-display font-extrabold mb-1">85</div><div class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Projects</div></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="py-24 lg:py-32">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                                <div class="lg:w-1/2">
+                                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight text-slate-900">Real Support for <span class="text-brand-blue">Real Growth</span></h2>
+                                    <div class="space-y-8">
+                                        <div class="flex gap-6 group">
+                                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300"><i data-lucide="compass"></i></div>
+                                            <div>
+                                                <h4 class="text-xl font-bold mb-2">Guided Mentorship</h4>
+                                                <p class="text-slate-600 leading-relaxed">Connect with professionals who understand your journey and can guide you toward your career goals.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-6 group">
+                                            <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300"><i data-lucide="briefcase"></i></div>
+                                            <div>
+                                                <h4 class="text-xl font-bold mb-2">Career Prep</h4>
+                                                <p class="text-slate-600 leading-relaxed">From professional resumes to interview mastery, we provide the toolkit you need to succeed.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-6 group">
+                                            <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300"><i data-lucide="heart"></i></div>
+                                            <div>
+                                                <h4 class="text-xl font-bold mb-2">Safe Spaces</h4>
+                                                <p class="text-slate-600 leading-relaxed">Our community centers are built on respect and emotional safety, fostering genuine growth.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lg:w-1/2 relative">
+                                    <div class="aspect-square rounded-[60px] overflow-hidden rotate-2 shadow-2xl relative">
+                                        <img src="bg.png" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                        <div class="absolute bottom-8 left-8 right-8 text-white">
+                                            <div class="flex gap-1 mb-2">
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                            </div>
+                                            <p class="text-lg font-medium italic mb-2">"BGI gave me the confidence to apply for my first internship. I didn't just get the job, I found my voice."</p>
+                                            <p class="text-sm font-bold opacity-80 uppercase tracking-widest">— Alex Jenkins, BGI Member</p>
+                                        </div>
+                                    </div>
+                                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-blue/10 blur-3xl -z-10 rounded-full animate-pulse"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="py-24 bg-slate-900 overflow-hidden relative">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-16">Community <span class="text-brand-blue">Impact</span></h2>
+                            <div class="grid md:grid-cols-3 gap-8 text-left">
+                                <div class="p-8 bg-slate-800 rounded-[32px] border border-slate-700 card-hover">
+                                    <p class="text-slate-300 mb-6 italic">"The resource library is a game changer. I used the scholarship database to find three awards I qualified for."</p>
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700"><img src="https://picsum.photos/seed/u1/100/100"></div>
+                                        <div><div class="text-white font-bold">Sarah T.</div><div class="text-xs text-slate-500 uppercase">Education Track</div></div>
+                                    </div>
+                                </div>
+                                <div class="p-8 bg-slate-800 rounded-[32px] border border-slate-700 card-hover">
+                                    <p class="text-slate-300 mb-6 italic">"BGI workshops taught me more about networking than I learned in three years of high school. Highly recommend!"</p>
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700"><img src="https://picsum.photos/seed/u2/100/100"></div>
+                                        <div><div class="text-white font-bold">James L.</div><div class="text-xs text-slate-500 uppercase">Leadership</div></div>
+                                    </div>
+                                </div>
+                                <div class="p-8 bg-slate-800 rounded-[32px] border border-slate-700 card-hover">
+                                    <p class="text-slate-300 mb-6 italic">"A community where everyone actually wants you to succeed. There's no ego here, just pure support."</p>
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700"><img src="https://picsum.photos/seed/u3/100/100"></div>
+                                        <div><div class="text-white font-bold">Maria R.</div><div class="text-xs text-slate-500 uppercase">Advocate</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="py-24 lg:py-40">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="bg-brand-blue rounded-[60px] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+                                <div class="relative z-10">
+                                    <h2 class="text-4xl md:text-6xl font-display font-extrabold mb-8">Ready to Start Your Journey?</h2>
+                                    <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">Join thousands of young leaders making a difference. Access is free, the community is waiting.</p>
+                                    <button class="px-10 py-5 bg-white text-brand-blue rounded-2xl font-bold text-lg tap-bounce shadow-xl">Join the Community</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            `;
+        }
+
+        function renderBlog() {
+            return `
+                <div class="py-20 lg:py-32 bg-slate-50/30 fade-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="max-w-3xl mb-20 text-center mx-auto">
+                            <h1 class="text-4xl md:text-6xl mb-6 font-display font-bold">Our <span class="text-brand-green">Blog</span></h1>
+                            <p class="text-lg text-slate-600">Discover stories of impact and leadership advice.</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                            ${blogPosts.map(post => `
+                                <article class="group flex flex-col bg-white rounded-[40px] overflow-hidden border border-slate-100 card-hover">
+                                    <div class="relative h-64 overflow-hidden"><img src="${post.imageUrl}" class="absolute inset-0 w-full h-full object-cover"></div>
+                                    <div class="p-8"><h2 class="text-2xl font-bold mb-4 font-display leading-tight">${post.title}</h2><span class="text-brand-green font-bold text-sm">Read Article →</span></div>
+                                </article>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderEvents() {
+            return `
+                <div class="py-20 lg:py-32 fade-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl md:text-6xl mb-12 font-display font-bold text-center">Explore <span class="text-brand-orange">Events</span></h1>
+                        <div class="grid gap-12">
+                            ${events.map(event => `
+                                <div class="group flex flex-col lg:flex-row bg-white rounded-[40px] overflow-hidden border border-slate-100 card-hover">
+                                    <img src="${event.imageUrl}" class="lg:w-2/5 h-64 lg:h-auto object-cover">
+                                    <div class="lg:w-3/5 p-12"><h2 class="text-3xl font-display font-bold mb-6">${event.title}</h2><p class="text-slate-500 mb-10 text-lg">${event.description}</p><button class="bg-brand-orange text-white px-8 py-3 rounded-2xl font-bold tap-bounce">Register Now</button></div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderResources() {
+            const filtered = resourcesList.filter(r => r.title.toLowerCase().includes(currentSearch.toLowerCase()) && (currentCategory === 'all' || r.category === currentCategory));
+            const categories = [{id:'all',l:'All'},{id:'employment',l:'Employment'},{id:'education',l:'Education'},{id:'mental-health',l:'Mental Health'}];
+            return `
+                <div class="py-20 lg:py-32 fade-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+                            <h1 class="text-4xl md:text-6xl font-display font-bold">Resource <span class="text-brand-blue">Library</span></h1>
+                            <input id="res-search" placeholder="Search resources..." value="${currentSearch}" class="w-full lg:w-96 px-6 py-4 rounded-2xl border-2 border-slate-100 outline-none focus:border-brand-blue">
+                        </div>
+                        <div class="flex gap-2 mb-12 overflow-x-auto pb-4 custom-scrollbar">
+                            ${categories.map(c => `<button data-cat="${c.id}" class="cat-pill px-6 py-2.5 rounded-full font-bold text-sm ${currentCategory === c.id ? 'bg-brand-blue text-white' : 'bg-white border-2 border-slate-100 text-slate-500'}">${c.l}</button>`).join('')}
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${filtered.map(r => `
+                                <div class="bg-white p-8 rounded-[32px] border border-slate-100 card-hover">
+                                    <h3 class="font-display font-bold text-xl mb-3">${r.title}</h3><p class="text-slate-500 text-sm mb-8 leading-relaxed">${r.description}</p>
+                                    <button class="bg-slate-50 p-4 rounded-xl font-bold text-sm flex items-center justify-between w-full hover:bg-brand-blue hover:text-white transition-all"><span>Access</span> <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPage() {
+            const hash = window.location.hash || '#/';
+            const content = document.getElementById('content');
+            if (hash === '#/') content.innerHTML = renderHome();
+            else if (hash === '#/blog') content.innerHTML = renderBlog();
+            else if (hash === '#/events') content.innerHTML = renderEvents();
+            else if (hash === '#/resources') content.innerHTML = renderResources();
+            else content.innerHTML = `<div class="py-32 text-center">Section Coming Soon</div>`;
+            
+            if (window.lucide) lucide.createIcons();
+            attachListeners();
+            window.scrollTo(0, 0);
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.toggle('text-brand-blue', link.getAttribute('href') === hash);
+            });
+        }
+
+        function attachListeners() {
+            const search = document.getElementById('res-search');
+            if (search) {
+                search.oninput = (e) => { currentSearch = e.target.value; renderPage(); document.getElementById('res-search').focus(); };
+            }
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                btn.onclick = () => { currentCategory = btn.dataset.cat; renderPage(); };
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
+            window.onhashchange = renderPage;
+            renderPage();
+        });
+    </script>
+</body>
+</html>
